@@ -1,8 +1,8 @@
 name: SeedShield
-version: 1.0.0
+version: 1.0.1
 main: com.seedshield.SeedShieldPlugin
 api-version: '1.20'
 load: STARTUP
 description: Cryptographic structure seed protection for Paper/Spigot - prevents seed cracking
-author: yunluo7
-website: https://github.com/yunluo7/SeedShield
+author: 7Yunluo
+website: https://github.com/MuNET-OSS/SeedShield
