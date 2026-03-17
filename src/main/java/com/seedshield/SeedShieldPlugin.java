@@ -165,8 +165,10 @@ public class SeedShieldPlugin extends JavaPlugin implements Listener {
                 return;
             }
             seedField.setAccessible(true);
+            long oldSeed = seedField.getLong(structureState);
             long secureSeed = deriveLongSeed(worldSeed, "stronghold_rings");
             seedField.setLong(structureState, secureSeed);
+            getLogger().info("  Modified " + seedField.getName() + ": " + oldSeed + " → " + secureSeed);
 
             // Find generateRingPositions(Holder, ConcentricRingsStructurePlacement) method
             Method generateRings = findGenerateRingPositionsMethod(structureState);
@@ -294,10 +296,22 @@ public class SeedShieldPlugin extends JavaPlugin implements Listener {
 
     /** Find the concentricRingsSeed long field */
     private Field findConcentricRingsSeedField(Object structureState, long worldSeed) throws Exception {
+        // First pass: find by name containing "ring" (most reliable)
         for (Field f : getAllFields(structureState.getClass())) {
             if (f.getType() == long.class) {
                 f.setAccessible(true);
-                if (f.getName().toLowerCase().contains("ring") || f.getLong(structureState) == worldSeed) {
+                if (f.getName().toLowerCase().contains("ring")) {
+                    getLogger().info("  Found concentricRingsSeed field: " + f.getName() + " = " + f.getLong(structureState));
+                    return f;
+                }
+            }
+        }
+        // Second pass: find long field matching worldSeed but NOT named "levelSeed"
+        for (Field f : getAllFields(structureState.getClass())) {
+            if (f.getType() == long.class) {
+                f.setAccessible(true);
+                if (f.getLong(structureState) == worldSeed && !f.getName().toLowerCase().contains("level")) {
+                    getLogger().info("  Found concentricRingsSeed field (by value): " + f.getName() + " = " + f.getLong(structureState));
                     return f;
                 }
             }
