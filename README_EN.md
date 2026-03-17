@@ -28,16 +28,6 @@ salt = SHA-256(secretKey + ":" + worldSeed + ":" + structureType)[0..4]
 - **Secret key protection**: Without the 256-bit key (stored in `config.yml`), salts cannot be reversed.
 - **Stronghold protection**: Also modifies `concentricRingsSeed` and recalculates ring positions.
 
-## Comparison with Existing Solutions
-
-| Solution | Platform | Modifies Structure Positions | Crypto Protection | Per-Structure Isolation | Stronghold Protection |
-|----------|----------|:---:|:---:|:---:|:---:|
-| **SeedShield** | **Paper/Spigot plugin** | **✅** | **✅ SHA-256** | **✅** | **✅** |
-| [SeedGuard](https://github.com/DrexHD/SeedGuard) | Fabric mod | ✅ | ❌ Random | ✅ | ✅ |
-| [SecureSeed](https://github.com/Earthcomputer/SecureSeed) | Fabric mod (1.16.5, abandoned) | ✅ | ✅ BLAKE2 | ✅ | ✅ |
-| [AntiSeedCracker](https://github.com/akshualy/AntiSeedCracker) | Spigot plugin | ❌ | ❌ | ❌ | ❌ |
-| Leaf `secure-seed` | Server fork | ✅ | ✅ 1024-bit | ✅ | ✅ |
-| spigot.yml seeds | Built-in | ✅ | ❌ Plain int | ❌ | ⚠️ |
 
 ## Installation
 
