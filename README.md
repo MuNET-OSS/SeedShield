@@ -4,7 +4,7 @@
 
 **中文 | [English](README_EN.md)**
 
-SeedShield 通过将每种结构类型的放置 salt 替换为不可逆的 SHA-256 哈希值，防止种子破解工具（chunkbase、SeedCrackerX、Structurecracker）定位结构位置。
+SeedShield 通过将每种结构类型的放置 salt 替换为不可逆的 SHA-256 哈希值，防止种子破解工具（chunkbase、SeedCrackerX、Structurecracker）定位结构位置，可用于主世界/下界/末地。
 
 **这是一个为新版 Paper/Spigot 提供加密级结构种子保护的插件。** 此前，这种级别的保护只能通过 Fabric mod 或自定义服务端 fork 才能实现。
 
