@@ -6,7 +6,7 @@
 
 SeedShield 通过将每种结构类型的放置 salt 替换为不可逆的 SHA-256 哈希值，防止种子破解工具（chunkbase、SeedCrackerX、Structurecracker）定位结构位置。
 
-**这是第一个为 Paper/Spigot 提供加密级结构种子保护的插件。** 此前，这种级别的保护只能通过 Fabric mod 或自定义服务端 fork 才能实现。
+**这是一个为新版 Paper/Spigot 提供加密级结构种子保护的插件。** 此前，这种级别的保护只能通过 Fabric mod 或自定义服务端 fork 才能实现。
 
 ## 工作原理
 
@@ -27,17 +27,6 @@ salt = SHA-256(密钥 + ":" + 世界种子 + ":" + 结构类型名)[前4字节]
 - **结构间隔离**：每种结构类型获得独立的加密 salt 。破解一种结构的 salt 不会泄露其他结构的信息。
 - **密钥保护**：没有 256 位密钥（存储在 `config.yml` 中），salt 无法被逆向。
 - **要塞保护**：同时修改 `concentricRingsSeed` 并重新计算环形位置。
-
-## 与现有方案对比
-
-| 方案 | 平台 | 修改结构位置 | 加密保护 | 结构间隔离 | 要塞保护 |
-|------|------|:---:|:---:|:---:|:---:|
-| **SeedShield** | **Paper/Spigot 插件** | **✅** | **✅ SHA-256** | **✅** | **✅** |
-| [SeedGuard](https://github.com/DrexHD/SeedGuard) | Fabric mod | ✅ | ❌ 随机数 | ✅ | ✅ |
-| [SecureSeed](https://github.com/Earthcomputer/SecureSeed) | Fabric mod（1.16.5，已停更） | ✅ | ✅ BLAKE2 | ✅ | ✅ |
-| [AntiSeedCracker](https://github.com/akshualy/AntiSeedCracker) | Spigot 插件 | ❌ | ❌ | ❌ | ❌ |
-| Leaf `secure-seed` | 服务端 fork | ✅ | ✅ 1024位 | ✅ | ✅ |
-| spigot.yml 种子配置 | 内置功能 | ✅ | ❌ 明文整数 | ❌ | ⚠️ |
 
 ## 安装方法
 
