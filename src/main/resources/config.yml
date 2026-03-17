@@ -1,0 +1,13 @@
+# SeedShield Configuration
+# Cryptographic structure seed protection - prevents seed cracking tools
+# from determining structure locations.
+
+# Secret key used for SHA-256 hashing. Auto-generated on first run.
+# DO NOT SHARE this key. Without it, structure salts cannot be reversed.
+# Delete this value to regenerate (will change all structure positions).
+secret-key: ""
+
+# Worlds to protect. Structure seeds will be cryptographically randomized
+# in these worlds. Other worlds remain unaffected.
+enabled-worlds:
+  - world
