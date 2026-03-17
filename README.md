@@ -63,8 +63,10 @@ enabled-worlds:
 
 ## 环境要求
 
-- Paper 1.21+（或其 fork：Leaves、Purpur、Folia 等）
+- Paper 1.20.5+（或其 fork：Leaves、Purpur、Folia 等）
 - Java 17+
+
+> **注意**：不支持 1.20.4 及以下版本。Paper 从 1.20.5 开始使用 Mojang 映射，插件依赖此映射体系进行反射操作。
 
 ## 安全性分析
 

@@ -1,7 +1,7 @@
 name: SeedShield
 version: 1.0.0
 main: com.seedshield.SeedShieldPlugin
-api-version: '1.21'
+api-version: '1.20'
 load: STARTUP
 description: Cryptographic structure seed protection for Paper/Spigot - prevents seed cracking
 author: yunluo7

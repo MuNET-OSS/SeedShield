@@ -63,8 +63,10 @@ enabled-worlds:
 
 ## Requirements
 
-- Paper 1.21+ (or forks: Leaves, Purpur, Folia, etc.)
+- Paper 1.20.5+ (or forks: Leaves, Purpur, Folia, etc.)
 - Java 17+
+
+> **Note**: Versions 1.20.4 and below are not supported. Paper switched to Mojang mappings starting from 1.20.5, which this plugin relies on for reflection.
 
 ## Security Analysis
 
